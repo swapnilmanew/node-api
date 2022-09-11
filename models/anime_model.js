@@ -20,6 +20,10 @@ const animeSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
+      anime_description: {
+        type: String,
+        required: true,
+      },
       created_at: {
         type: Date,
         default: Date.now(),

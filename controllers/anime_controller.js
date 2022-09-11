@@ -20,16 +20,19 @@ class AnimeControllers {
             released_year,
             seasons,
             anime_category,
-            thumbnail,
+            anime_description,
+            anime_thumbnail,
           } = req.body;
       try {
+        return res.json(req.body)
         const AnimeData = await new Anime({
             anime_name: anime_name,
             anime_episodes: episodes,
             anime_released_year: released_year,
             anime_seasons: seasons,
             anime_category: anime_category,
-            anime_thumbnail: "Anime Thumbnail",
+            anime_description: anime_description,
+            anime_thumbnail: anime_thumbnail,
         });
         const fr = await AnimeData.save();
         return res.json({
