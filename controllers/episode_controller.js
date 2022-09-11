@@ -1,4 +1,4 @@
-const Episodes = require("../models/season_model")
+const Episodes = require("../models/episodes_model")
 class EpisodesController {
     // getting all animes
     static index = async (req,res) =>
@@ -12,22 +12,23 @@ class EpisodesController {
             console.log(error)
       }
     }
-    // updating season
+    // updating episode
     static store = async(req,res) =>
     {
         const {
             anime_id,
             season_id,
-            season_number,
+            episode_number,
+            episode_download_link
           } = req.body;
       try {
-        const seasonData = await new Episodes({
+        const episodeData = await new Episodes({
             anime_id: anime_id,
             season_id:season_id,
             episode_number:episode_number,
             episode_download_link:episode_download_link,
         });
-        const fr = await seasonData.save();
+        const fr = await episodeData.save();
         return res.json({
             "msg" : "Episode created successfully !",
             "status_code": 1,
@@ -35,7 +36,7 @@ class EpisodesController {
         });
       } catch (error) {
         return res.json({
-            "msg" : "Something went wrong !",
+            "msg" : error,
             "status_code": 1,
             "episode_data" : [],
         });
@@ -49,12 +50,12 @@ class EpisodesController {
             episode_download_link,
           } = req.body;
       try {
-        const seasonData = await Episodes.findByIdAndUpdate(
+        const episodeData = await Episodes.findByIdAndUpdate(
           episode_id,{
             episode_number: episode_number,
             episode_download_link: episode_download_link
         });
-        const fr = await seasonData.save();
+        const fr = await episodeData.save();
         return res.json({
             "msg" : "Episode updated !",
             "status_code": 1,
@@ -62,7 +63,7 @@ class EpisodesController {
         });
       } catch (error) {
         return res.json({
-            "msg" : "Something went wrong !",
+            "msg" : error,
             "status_code": 1,
             "episode_data" : [],
         });

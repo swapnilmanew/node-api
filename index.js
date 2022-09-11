@@ -17,6 +17,10 @@ app.use("/api/anime",animeRoutes)
 const seasonRoute = require("./routes/season_routes")
 app.use("/api/season",seasonRoute)
 
+// episode route
+const episodeRoute = require("./routes/episode_routes")
+app.use("/api/episode",episodeRoute)
+
 app.listen(3000, ()=>{
     console.log("server is running")
 })
