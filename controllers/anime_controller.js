@@ -24,7 +24,6 @@ class AnimeControllers {
             anime_thumbnail,
           } = req.body;
       try {
-        return res.json(req.body)
         const AnimeData = await new Anime({
             anime_name: anime_name,
             anime_episodes: episodes,
