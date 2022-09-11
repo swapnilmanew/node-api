@@ -13,6 +13,10 @@ app.use(express.urlencoded({ extended: false }));
 const animeRoutes = require("./routes/anime_routes")
 app.use("/api/anime",animeRoutes)
 
+// season
+const seasonRoute = require("./routes/season_routes")
+app.use("/api/season",seasonRoute)
+
 app.listen(3000, ()=>{
     console.log("server is running")
 })
