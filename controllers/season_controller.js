@@ -56,7 +56,7 @@ class SeasonsController {
         });
       } catch (error) {
         return res.json({
-            "msg" : "Something went wrong !",
+            "msg" : error,
             "status_code": 1,
             "season_data" : [],
         });
