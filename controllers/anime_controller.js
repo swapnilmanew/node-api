@@ -84,7 +84,7 @@ class AnimeControllers {
       });
     } catch (error) {
       return res.json({
-        msg: "Something went wrong !",
+        msg: error,
         status_code: 1,
         anime_data: [],
       });

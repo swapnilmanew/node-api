@@ -1,8 +1,8 @@
-const express = require("express")
+const express = require("express");
 const router = express.Router();
-const AnimeControllers = require("../controllers/anime_controller")
+const AnimeControllers = require("../controllers/anime_controller");
 router.get("/index", AnimeControllers.index);
 router.post("/store", AnimeControllers.store);
-router.get("/show/:_id", AnimeControllers.show); 
+router.get("/show/:_id", AnimeControllers.show);
 router.post("/update", AnimeControllers.update);
-module.exports = router
+module.exports = router;
