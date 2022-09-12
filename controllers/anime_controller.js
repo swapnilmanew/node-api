@@ -59,9 +59,9 @@ class AnimeControllers {
     const {
       anime_id,
       anime_name,
-      episodes,
-      released_year,
-      seasons,
+      anime_episodes,
+      anime_released_year,
+      anime_seasons,
       anime_category,
       anime_description,
       anime_thumbnail,
@@ -69,9 +69,9 @@ class AnimeControllers {
     try {
       const AnimeData = await Anime.findByIdAndUpdate(anime_id, {
         anime_name: anime_name,
-        anime_episodes: episodes,
-        anime_released_year: released_year,
-        anime_seasons: seasons,
+        anime_episodes: anime_episodes,
+        anime_released_year: anime_released_year,
+        anime_seasons: anime_seasons,
         anime_category: anime_category,
         anime_description: anime_description,
         anime_thumbnail: anime_thumbnail,
@@ -84,7 +84,7 @@ class AnimeControllers {
       });
     } catch (error) {
       return res.json({
-        msg: error,
+        msg: error.message,
         status_code: 1,
         anime_data: [],
       });

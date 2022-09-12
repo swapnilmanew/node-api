@@ -21,6 +21,6 @@ app.use("/api/season", seasonRoute);
 // episode route
 const episodeRoute = require("./routes/episode_routes");
 app.use("/api/episode", episodeRoute);
-app.listen(3000, () => {
+app.listen(5000, () => {
   console.log("server is running");
 });
