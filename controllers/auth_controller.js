@@ -20,7 +20,6 @@ class AuthController {
           return res.json({
             status_code: 1,
             msg: "Login successful",
-            token: token,
           });
         });
       }
